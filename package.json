@@ -1,10 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "cross-env NODE_ENV=development nodemon Server/server.js",
+    "start": "cross-env NODE_ENV=production node Server/server.js",
+    "build": "npm install && npm install --prefix Client && npm run build --prefix Client"
   },
   "type": "module",
   "keywords": [],
@@ -21,5 +22,8 @@
     "mongoose": "^8.7.0",
     "nodemon": "^3.1.7",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
